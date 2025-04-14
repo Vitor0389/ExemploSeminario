@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class IdentifierTest {
 
-    private Identifier identifierTest = new Identifier();
+    private final Identifier identifierTest = new Identifier();
 
     @ParameterizedTest
     @DisplayName("Testando entradas válida com tamanho menor que 6")
@@ -79,6 +79,8 @@ public class IdentifierTest {
         assertThat(identifierTest.isValidIdentifier(stringTeste)).isEqualTo(false);
 
     }
+
+
 
 
 }
