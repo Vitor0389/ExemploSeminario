@@ -1,1 +1,1 @@
-# ExemploSemin-rio
+Exemplo do seminário sobre GitHub Actions
