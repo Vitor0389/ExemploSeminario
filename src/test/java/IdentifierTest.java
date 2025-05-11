@@ -80,7 +80,53 @@ public class IdentifierTest {
 
     }
 
+    @Test
+    @DisplayName("Testando caractere inválido no meio do bglh")
+    public void testingIfHasWrongCaractere(){
+
+        String string = "A43BJ@";
+
+        assertThat(identifierTest.isValidIdentifier(string)).isEqualTo(false);
+    }
+
+    @Test
+    @DisplayName("Testando null")
+    public void testingNull(){
+        String string = null;
+
+        assertThat(identifierTest.isValidIdentifier(string)).isFalse();
+    }
+
+    @Test
+    @DisplayName("Testando se com exatamente 6 caracteres funciona o teste")
+    public void testingLengthEqualSix(){
+
+        String string = "A2345B";
+
+        assertThat(identifierTest.isValidIdentifier(string)).isTrue();
+    }
+
+    @Test
+    @DisplayName("Testando string vazia")
+    public void testingEmptyString(){
+
+        String string = "";
+
+        assertThat(identifierTest.isValidIdentifier(string)).isFalse();
+    }
+
+    @Test
+    @DisplayName("Testando identificador válido com 7 caracteres")
+    public void testingSevenLengthIdentifier() {
+        assertThat(identifierTest.isValidIdentifier("aaaaaaa")).isFalse();
+    }
 
 
+    @Test
+    @DisplayName("Testando identificador com primeiro caractere inválido")
+    public void testingWrongFirstCaractere(){
 
+        assertThat(identifierTest.isValidIdentifier("!2345B")).isFalse();
+        assertThat(identifierTest.isValidIdentifier("1BCDE6")).isFalse();
+    }
 }
